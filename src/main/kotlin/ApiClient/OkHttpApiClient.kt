@@ -1,6 +1,5 @@
-package org.example.ApiClient
+package org.david.ApiClient
 
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody.Companion.toRequestBody

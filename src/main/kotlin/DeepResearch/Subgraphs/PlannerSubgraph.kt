@@ -1,15 +1,15 @@
-package org.example.DeepResearch.Subgraphs
+package org.david.DeepResearch.Subgraphs
 
+import ai.koog.agents.core.agent.context.AIAgentContextBase
+import ai.koog.agents.core.agent.entity.AIAgentNodeBase
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphBuilderBase
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphDelegate
 import ai.koog.agents.core.dsl.builder.forwardTo
 import ai.koog.prompt.llm.LLModel
 import ai.koog.prompt.params.LLMParams
-import org.apache.xpath.operations.Bool
-import org.example.ApiClient.IApiClient
-import org.example.ApiClient.OkHttpApiClient
-import org.example.DeepResearch.Formats.PlannerFormat
-import org.example.researchManagerPrompt
+import org.david.DeepResearch.Formats.PlannerFormat
+import org.david.researchManagerPrompt
+import kotlin.properties.ReadOnlyProperty
 
 
 fun AIAgentSubgraphBuilderBase<*, *>.subgraphPlanner(
@@ -35,7 +35,7 @@ fun AIAgentSubgraphBuilderBase<*, *>.subgraphPlanner(
     }
 
     val verifyNumberOfTasks by node<Unit, Boolean>("verify-number-of-tasks") {
-        if(tasks.size < 10) {
+        if((tasks.size < 10) or (tasks.isEmpty())) {
             false
         }
         true

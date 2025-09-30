@@ -4,8 +4,8 @@ plugins {
 
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "org.david"
+version = "0.1"
 
 repositories {
     mavenCentral()

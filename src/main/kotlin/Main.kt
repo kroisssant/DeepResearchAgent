@@ -1,24 +1,11 @@
-package org.example
+package org.david
 
-import ai.koog.agents.core.dsl.builder.AIAgentStrategyBuilder
 import ai.koog.agents.core.agent.AIAgent
-import ai.koog.agents.memory.feature.AgentMemory
-import ai.koog.agents.snapshot.feature.Persistency
-import ai.koog.agents.snapshot.providers.InMemoryPersistencyStorageProvider
-import ai.koog.prompt.executor.llms.all.simpleOllamaAIExecutor
-import ai.koog.agents.core.agent.config.AIAgentConfig
-import ai.koog.agents.core.dsl.builder.forwardTo
-import ai.koog.agents.core.dsl.builder.strategy
-import ai.koog.agents.core.dsl.extension.nodeLLMRequest
-import ai.koog.agents.ext.agent.chatAgentStrategy
 import ai.koog.agents.features.opentelemetry.feature.OpenTelemetry
-import ai.koog.prompt.dsl.Prompt
+import ai.koog.prompt.executor.llms.all.simpleOllamaAIExecutor
 import ai.koog.prompt.executor.model.PromptExecutor
 import ai.koog.prompt.llm.OllamaModels
-import ai.koog.prompt.message.Message
-import ai.koog.prompt.params.LLMParams
-import ai.koog.prompt.structure.StructuredResponse
-import org.example.DeepResearch.deepResearchStrategy
+import org.david.DeepResearch.deepResearchStrategy
 
 suspend fun main() {
     val executor: PromptExecutor = simpleOllamaAIExecutor()
@@ -34,7 +21,7 @@ suspend fun main() {
         }
     )
 
-   val input: String = readLine() ?: ""
+   val input: String = readlnOrNull() ?: ""
     buildPrompts(input)
     val res = agent.run(
         input
@@ -44,7 +31,7 @@ suspend fun main() {
 }
 
 fun buildPrompts(initMessage: String) {
-    searchPrompt = searchPrompt + initMessage
-    summerizePrompt = summerizePrompt + initMessage
-    writerPrompt = writerPrompt + initMessage
+    searchPrompt += initMessage
+    summerizePrompt += initMessage
+    writerPrompt += initMessage
 }

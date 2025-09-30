@@ -1,4 +1,4 @@
-package org.example.Search
+package org.david.Search
 
 import kotlinx.serialization.Serializable
 

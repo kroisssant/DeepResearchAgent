@@ -1,4 +1,4 @@
-package org.example.DeepResearch.Subgraphs
+package org.david.DeepResearch.Subgraphs
 
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphBuilderBase
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphDelegate
@@ -6,8 +6,8 @@ import ai.koog.agents.core.dsl.builder.forwardTo
 import ai.koog.prompt.llm.LLModel
 import ai.koog.prompt.message.Message
 import ai.koog.prompt.params.LLMParams
-import org.example.DeepResearch.Nodes.nodeVerify
-import org.example.writerPrompt
+import org.david.DeepResearch.Nodes.nodeVerify
+import org.david.writerPrompt
 
 fun AIAgentSubgraphBuilderBase<*, *>.subgraphWrite(
     llmModel: LLModel? = null,

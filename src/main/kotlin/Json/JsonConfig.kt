@@ -1,4 +1,4 @@
-package org.example.Json
+package org.david.Json
 
 import kotlinx.serialization.json.Json
 

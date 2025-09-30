@@ -13,12 +13,12 @@ This agent is designed to perform in-depth research on a given topic, gather rel
 
 - Ollama (for local LLM model usage)
 - Llama3.2:3b model downloaded and set up in Ollama
-- Searxng instance that supports JSON output (for web searching)
+- Searxng local instance that supports JSON output, running on port 8888 (for web searching)
 
 ## Usage
 1. Clone the repository:
    ```bash
-   git clone 
+   git clone https://github.com/kroisssant/DeepResearchAgent.git
    ```
 2. Navigate to the project directory:
    ```bash

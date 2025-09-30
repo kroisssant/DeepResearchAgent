@@ -1,4 +1,4 @@
-package org.example.ApiClient
+package org.david.ApiClient
 
 interface IApiClient {
     fun postRequest(endpoint: String, jsonBody: String): String

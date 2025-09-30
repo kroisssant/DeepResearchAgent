@@ -1,8 +1,8 @@
-package org.example.Search
+package org.david.Search
 
-import org.example.ApiClient.IApiClient
-import org.example.ApiClient.OkHttpApiClient
-import org.example.Json.JsonConfig
+import org.david.ApiClient.IApiClient
+import org.david.ApiClient.OkHttpApiClient
+import org.david.Json.JsonConfig
 
 class Searcxng: Browser {
     val client: IApiClient = OkHttpApiClient()

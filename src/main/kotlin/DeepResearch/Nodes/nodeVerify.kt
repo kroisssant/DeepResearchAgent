@@ -1,11 +1,11 @@
-package org.example.DeepResearch.Nodes
+package org.david.DeepResearch.Nodes
 
 import ai.koog.agents.core.dsl.builder.AIAgentNodeDelegate
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphBuilderBase
 import ai.koog.prompt.message.Message
-import org.example.DeepResearch.Formats.VerificationResult
-import org.example.summerizePrompt
-import org.example.verificationPrompt
+import org.david.DeepResearch.Formats.VerificationResult
+import org.david.summerizePrompt
+import org.david.verificationPrompt
 
 fun AIAgentSubgraphBuilderBase<*, *>.nodeVerify(
     name: String? = null,

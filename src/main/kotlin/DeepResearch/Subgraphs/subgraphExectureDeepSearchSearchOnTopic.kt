@@ -1,26 +1,14 @@
-package org.example.DeepResearch.Subgraphs
+package org.david.DeepResearch.Subgraphs
 
-import DeepResearch.Subgraphs.subgraphExtractInfoFromWebpage
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphBuilderBase
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphDelegate
 import ai.koog.agents.core.dsl.builder.forwardTo
 import ai.koog.prompt.llm.LLModel
 import ai.koog.prompt.params.LLMParams
-
-import it.skrape.core.htmlDocument
-import it.skrape.selects.html5.body
-import org.example.ApiClient.IApiClient
-import org.example.ApiClient.OkHttpApiClient
-import org.example.DeepResearch.Formats.PlannerFormat
-import org.example.DeepResearch.Formats.QueryListFormat
-import org.example.DeepResearch.Formats.WebpageResult
-import org.example.DeepResearch.Nodes.nodeSummerize
-
-import org.example.Search.Browser
-import org.example.Search.Searcxng
-import org.example.researchManagerPrompt
-import org.example.searchPrompt
-import org.example.summerizePrompt
+import org.david.DeepResearch.Formats.QueryListFormat
+import org.david.Search.Browser
+import org.david.Search.Searcxng
+import org.david.searchPrompt
 
 
 fun AIAgentSubgraphBuilderBase<*, *>.subgraphExecuteDeepSearchSearchOnTopic(
@@ -32,12 +20,12 @@ fun AIAgentSubgraphBuilderBase<*, *>.subgraphExecuteDeepSearchSearchOnTopic(
 ) {
     val browser: Browser = Searcxng()
 
-    val nodeSummery by nodeSummerize()
     val extractInfo by subgraphExtractInfoFromWebpage()
     val urlList: MutableList<String> = mutableListOf()
     val summeryOfResults: MutableList<String> = mutableListOf()
-    val planQueryNode by node<String, QueryListFormat>("plan-node") {
-        val res=  llm.writeSession() {
+    val planQueryNode by node<String, QueryListFormat>("plan-query-node") {
+        urlList.clear()
+        val res=  llm.writeSession{
             rewritePrompt {
                 it.copy(messages = emptyList())
             }
@@ -52,7 +40,7 @@ fun AIAgentSubgraphBuilderBase<*, *>.subgraphExecuteDeepSearchSearchOnTopic(
 
     val getUrls by node <List<String>, Unit>("get-urls") {
         for( q in 0..<it.size.coerceAtMost(5)) {
-            val urls = browser.search(urlList[q])
+            val urls = browser.search(it[q])
             for(u in 0..<urls.size.coerceAtMost(5)) {
                 urlList.add(urls[u].url)
             }

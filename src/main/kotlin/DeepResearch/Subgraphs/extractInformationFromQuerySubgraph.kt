@@ -1,19 +1,19 @@
-package DeepResearch.Subgraphs;
+package org.david.DeepResearch.Subgraphs
 
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphBuilderBase
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphDelegate
 import ai.koog.agents.core.dsl.builder.forwardTo
 import ai.koog.prompt.llm.LLModel
 import ai.koog.prompt.params.LLMParams
-import org.example.ApiClient.IApiClient
-import org.example.ApiClient.OkHttpApiClient
-import org.example.DeepResearch.Formats.PlannerFormat
-import org.example.DeepResearch.Formats.WebpageResult
-import org.example.DeepResearch.Nodes.nodeSummerize
-import org.example.DeepResearch.Nodes.nodeVerify
-import org.example.Search.SearchResult
-import org.example.Tools.htmlToText
-import org.example.researchManagerPrompt
+import org.david.ApiClient.IApiClient
+import org.david.ApiClient.OkHttpApiClient
+import org.david.DeepResearch.Formats.PlannerFormat
+import org.david.DeepResearch.Formats.WebpageResult
+import org.david.DeepResearch.Nodes.nodeSummerize
+import org.david.DeepResearch.Nodes.nodeVerify
+import org.david.Search.SearchResult
+import org.david.Tools.htmlToText
+import org.david.researchManagerPrompt
 
 fun AIAgentSubgraphBuilderBase<*, *>.subgraphExtractInfoFromWebpage(
     llmModel: LLModel? = null,

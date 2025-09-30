@@ -1,9 +1,9 @@
-package org.example.DeepResearch.Nodes
+package org.david.DeepResearch.Nodes
 
 import ai.koog.agents.core.dsl.builder.AIAgentNodeDelegate
 import ai.koog.agents.core.dsl.builder.AIAgentSubgraphBuilderBase
 import ai.koog.prompt.message.Message
-import org.example.summerizePrompt
+import org.david.summerizePrompt
 
 fun AIAgentSubgraphBuilderBase<*, *>.nodeSummerize(
     name: String? = null,

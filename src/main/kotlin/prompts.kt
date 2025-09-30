@@ -1,4 +1,4 @@
-package org.example
+package org.david
 
 var clarifyPrompt = """
 You are a clarification agent whose task is to determine if the user's request is clear enough to proceed with generating a response.

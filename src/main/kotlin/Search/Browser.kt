@@ -1,6 +1,4 @@
-package org.example.Search
-
-import java.net.URL
+package org.david.Search
 
 interface Browser {
     fun search(query: String): List<SearchFound>

@@ -1,4 +1,4 @@
-package org.example.DeepResearch.Formats
+package org.david.DeepResearch.Formats
 
 import kotlinx.serialization.Serializable
 

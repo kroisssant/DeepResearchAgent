@@ -1,30 +1,10 @@
-package org.example.DeepResearch
+package org.david.DeepResearch
 
 import ai.koog.agents.core.dsl.builder.forwardTo
 import ai.koog.agents.core.dsl.builder.strategy
-import ai.koog.agents.core.dsl.extension.nodeLLMRequest
-import ai.koog.agents.core.tools.ToolParameterType
-import ai.koog.agents.core.tools.annotations.LLMDescription
-import ai.koog.agents.ext.agent.subgraphWithTask
-import ai.koog.prompt.dsl.Prompt
-import ai.koog.prompt.dsl.prompt
-import ai.koog.prompt.structure.StructuredOutputConfig
-import ai.koog.prompt.structure.json.JsonStructuredData
-import ai.koog.prompt.structure.json.generator.BasicJsonSchemaGenerator
-import kotlinx.serialization.Serializable
-import org.example.DeepResearch.Formats.PlannerFormat
-import org.example.DeepResearch.Formats.WebpageResult
-import org.example.DeepResearch.Subgraphs.subgraphExecuteDeepSearchSearchOnTopic
-import org.example.DeepResearch.Subgraphs.subgraphPlanner
-import org.example.DeepResearch.Subgraphs.subgraphWrite
-import org.example.researchManagerPrompt
-import java.time.InstantSource.system
-
-
-
-val json = JsonStructuredData.createJsonStructure<PlannerFormat>(
-    schemaGenerator = BasicJsonSchemaGenerator.Default,
-)
+import org.david.DeepResearch.Subgraphs.subgraphExecuteDeepSearchSearchOnTopic
+import org.david.DeepResearch.Subgraphs.subgraphPlanner
+import org.david.DeepResearch.Subgraphs.subgraphWrite
 
 
 val deepResearchStrategy =strategy<String, String>("deep-research-strategy") {
